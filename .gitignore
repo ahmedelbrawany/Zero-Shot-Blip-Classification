@@ -1,3 +1,52 @@
-/blip_model
-/venv
-/__pycache__
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# BLIP Model
+blip_model/
+*.pt
+*.pth
+*.ckpt
+
+# IDE - VSCode
+.vscode/
+*.code-workspace
+.history/
+
+# Flask
+instance/
+.webassets-cache
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Distribution / packaging
+dist/
+build/
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+coverage.xml
+*.cover
