@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero-Shot Image Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Zero-Shot Image Classification</h1>
+            <p>Upload an image or take a photo to classify its main subject</p>
+        </header>
+
+        <div class="upload-container">
+            <div class="button-group">
+                <button id="upload-btn" class="action-btn">
+                    <img src="{{ url_for('static', filename='img/upload.svg') }}" alt="Upload">
+                    Upload Image
+                </button>
+                <button id="camera-btn" class="action-btn">
+                    <img src="{{ url_for('static', filename='img/camera.svg') }}" alt="Camera">
+                    Take Photo
+                </button>
+            </div>
+
+            <div class="drop-zone hidden" id="drop-zone">
+                <div class="drop-zone-prompt">
+                    <img src="{{ url_for('static', filename='img/upload.svg') }}" alt="Upload">
+                    <p>Drag and drop an image or click to upload</p>
+                </div>
+                <input type="file" id="file-input" accept="image/*" capture="environment" class="drop-zone-input">
+            </div>
+
+            <div id="camera-container" class="hidden">
+                <video id="video" playsinline autoplay></video>
+                <button id="capture-btn">Take Photo</button>
+                <canvas id="canvas" class="hidden"></canvas>
+            </div>
+
+            <div id="preview-container" class="hidden">
+                <img id="image-preview" src="" alt="Preview">
+                <div class="button-group">
+                    <button id="classify-btn">Classify Image</button>
+                    <button id="retake-btn" class="secondary hidden">Take Another Photo</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="result-container" class="hidden">
+            <h2>Classification Result</h2>
+            <div class="result-box">
+                <p>Classification: <span id="classification-result">-</span></p>
+                <p class="confidence hidden">Confidence: <span id="confidence-score">-</span>%</p>
+            </div>
+            <button id="new-image-btn">Classify Another Image</button>
+        </div>
+
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Processing image...</p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

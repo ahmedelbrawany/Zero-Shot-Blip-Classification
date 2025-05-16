@@ -1,0 +1,6 @@
+flask
+transformers
+torch
+Pillow
+nltk>=3.8.1
+pyOpenSSL
